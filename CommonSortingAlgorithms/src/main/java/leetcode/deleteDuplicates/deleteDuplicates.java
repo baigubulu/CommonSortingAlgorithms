@@ -1,5 +1,8 @@
 package leetcode.deleteDuplicates;
 
+/**
+ * 题目链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+ */
 public class deleteDuplicates {
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) {

@@ -2,7 +2,12 @@ package Tree;
 
 public class Search {
 
-    //二叉查找树，递归实现 -- 递归 时间复杂度：o(logn)
+    /**
+     * 二叉查找树或者二叉搜索树，时间复杂度为o(logn)
+     * @param node
+     * @param data
+     * @return
+     */
     public BinaryTreeNode search(BinaryTreeNode node, int data) {
         if (node == null || node.getValue() == data) {
             return node;
