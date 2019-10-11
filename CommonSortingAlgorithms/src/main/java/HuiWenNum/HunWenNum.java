@@ -50,6 +50,35 @@ public class HunWenNum {
         return longestPalindrome;
     }
 
+    /**
+     * 判断是否是回文字符串
+     * 题目链接：https://leetcode-cn.com/problems/valid-palindrome/
+     * 该题目中的回文串可能是带有标点符号的
+     * 解题的方式：使用双指针完成整个过程
+     * @param s
+     * @return
+     */
+    public boolean isPalindrome(String s) {
+        char[] cs = s.toCharArray();
+        int cnt = 0, j= 0;
+        // 去除标点符号以及将字符从大写变成小写的过程
+        for (int i = 0; i < cs.length; i++) {
+            if (('0' <= cs[i] && cs[i] <= '9') || ('a' <= cs[i] && cs[i] <= 'z')){
+                cs[cnt++] = cs[i];
+            } else if ('A' <= cs[i] && cs[i] <='Z') {
+                cs[cnt++] = (char) (cs[i] - 'A' + 'a');
+            }
+        }
+        cnt--;
+        // 从头到尾对整个数组进行遍历
+        while (j < cnt) {
+            if (cs[j++] != cs[cnt--]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         String string = "qqqqabc22cba";
         Boolean flag = isHunWen(string);

@@ -73,7 +73,15 @@ public class LinkedList {
         return length;
     }
 
-    //链表反转  方法1 -- 递归调用
+    //
+
+    /**
+     * 链表反转  方法1 -- 递归调用
+     * head: 前一节点的指针域
+     * reHead: 反转后新链表的头结点
+     * @param head
+     * @return
+     */
     public Node reviseLinkedList(Node head) {
         if (head == null && head.getNext() == null) {
             return head;
@@ -88,7 +96,16 @@ public class LinkedList {
     }
 
     //链表反转  方法2 -- 此时需要两个指针来完成链表的反转(循环实现功能)
+
+    /**
+     * 将当前节点cur的下一个节点缓存到temp后，然后更改当前节点指针指向上一节点pre，反转当前节点的指针域用tmp临时保存，以便下一次使用。
+     * @param node
+     * @return
+     */
     public Node reviseLinkedList2(Node node) {
+        if (head == null) {
+            return null;
+        }
         //newNode类似于head接口，并没有确定的值存在
         Node newNode = null;
         Node curNode = node;
@@ -152,6 +169,66 @@ public class LinkedList {
             head = head.getNext();
         }
         return head;
+    }
+
+    /**
+     * 删除基数位的节点
+     * @param head
+     */
+    public Node delOddLinkedList(Node head) throws Exception{
+        if (head == null) {
+            throw new Exception("current node is null");
+        }
+        int size = getLength(head);
+        for (int index = 1; index < size; index += 2){
+
+            if (head != null) {
+                head = deleteElement(head, index);
+            }
+        }
+        return head;
+    }
+
+    private Node deleteElement(Node head, int index) {
+        int size =  getLength(head);
+        if (index == 0) {
+            return deleteHead(head);
+        } else if (index == size -1) {
+            deleteTail(head);
+        } else {
+            Node pre = head;
+            while (pre.getNext() != null && index > 1) {
+                pre = pre.getNext();
+                index--;
+            }
+            if (pre.getNext() != null) {
+                pre.setNext(pre.getNext().getNext());
+            }
+        }
+        return head;
+    }
+
+    private Node deleteHead(Node head) {
+        return head.getNext();
+    }
+
+    private void deleteTail(Node head) {
+        Node dummyHead = head;
+        while (dummyHead.getNext() != null && dummyHead.getNext().getNext() != null) {
+            dummyHead = dummyHead.getNext();
+        }
+        dummyHead.setNext(null);
+    }
+    private int getLength(Node head) {
+        if (head == null) {
+            return 0;
+        }
+        int len = 0;
+        while (head!= null) {
+            len++;
+            head = head.getNext();
+        }
+        return len;
     }
 
     public static void main(String[] args) {

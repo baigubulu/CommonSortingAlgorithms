@@ -1,4 +1,4 @@
-package IndexOf;
+package java.IndexOf;
 
 /**
  * 实现String的indexof函数 -- 该函数主要完成在src字符串中查询target字符串第一次出现的位置
