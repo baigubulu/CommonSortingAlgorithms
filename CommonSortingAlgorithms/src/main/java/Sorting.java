@@ -78,10 +78,16 @@ public class Sorting {
         }
     }
 
-    //快速排序 -- 拆分成两个数组
+    /**
+     * 快速排序，拆分成两个数组，完成排序
+     * @param array
+     * @param start
+     * @param end
+     * @return
+     */
     public static int partition(int[] array, int start, int end) {
-        int left = start;  //左节点
-        int right = end;   //右节点
+        int left = start;
+        int right = end;
 
         int tmp = array[left];
         while (left < right) {
@@ -96,6 +102,7 @@ public class Sorting {
             array[right] = array[left];
 
         }
+
         array[left] = tmp;
         return left;
     }

@@ -3,7 +3,7 @@ package DesignPattern.Singleton;
 //该方式使用的比较少
 public class Singleton6 {
     //双重校验的模式
-    private volatile static Singleton6 instance;
+    private static volatile Singleton6 instance;
 
     private Singleton6() {
     }

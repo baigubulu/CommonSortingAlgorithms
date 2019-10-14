@@ -18,13 +18,20 @@ public class BinaryTree {
         }
     }
 
-    TreeNode root;
+    private TreeNode root;
 
     public BinaryTree(int[] array) {
         root = makeBinaryTreeByArray(array, 1);
     }
 
     //将数列整理成二叉树，index的默认值为1
+
+    /**
+     *
+     * @param array
+     * @param index
+     * @return
+     */
     public static TreeNode makeBinaryTreeByArray(int[] array, int index) {
         if (index < array.length) {
             int value = array[index];
@@ -61,6 +68,7 @@ public class BinaryTree {
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             System.out.println("pop node value:" + node);
+            // 先进后出，所以先push右节点，在push左节点
             if (node.right != null) {
                 stack.push(node.right);
             }

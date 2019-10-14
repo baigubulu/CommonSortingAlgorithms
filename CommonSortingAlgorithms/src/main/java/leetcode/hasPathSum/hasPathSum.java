@@ -1,7 +1,6 @@
 package leetcode.hasPathSum;
 
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 题目链接：https://leetcode-cn.com/problems/path-sum/
